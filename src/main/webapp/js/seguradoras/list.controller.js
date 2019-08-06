@@ -1,18 +1,18 @@
 (function(){
 
     angular.module('webseg')
-        .controller('ClienteListController', ClienteListController);
+        .controller('SeguradoraListController', SeguradoraListController);
 
-    ClienteListController.$inject = ['ClienteService'];
+    SeguradoraListController.$inject = ['SeguradoraService'];
 
-    function ClienteListController (ClienteService) {
+    function SeguradoraListController (SeguradoraService) {
         var vm = this;
-        vm.clientes = [];
+        vm.seguradoras = [];
 
         function _load() {
-            ClienteService.findAll(vm.page, vm.pageSize, vm.filter, vm.sort)
+            SeguradoraService.findAll(vm.page, vm.pageSize, vm.filter, vm.sort)
                 .then(function(obj) {
-                    vm.clientes = obj.data;
+                    vm.seguradoras = obj.data;
                     vm.pageSize = obj.pageSize;
                     vm.page = obj.page;
                     vm.finish = obj.finish;
@@ -52,14 +52,14 @@
         }
         
         vm.remove = function (id) {
-            if (confirm('Deseja realmente excluir o cliente?')) {
-                ClienteService.remove(id)
+            if (confirm('Deseja realmente excluir a seguradora?')) {
+                SeguradoraService.remove(id)
                     .then(function () {
-                        alert('Cliente excluído com sucesso!');
+                        alert('Seguradora excluída com sucesso!');
                         _load();
                     })
                     .catch(function (error) {
-                        alert('Problemas ao excluir o cliente [' + error.code + ']!');
+                        alert('Problemas ao excluir a seguradora [' + error.code + ']!');
                     });
 
             }

@@ -1,18 +1,18 @@
 (function(){
 
     angular.module('webseg')
-        .controller('ClienteListController', ClienteListController);
+        .controller('ApoliceListController', ApoliceListController);
 
-    ClienteListController.$inject = ['ClienteService'];
+    ApoliceListController.$inject = ['ApoliceService'];
 
-    function ClienteListController (ClienteService) {
+    function ApoliceListController (ApoliceService) {
         var vm = this;
-        vm.clientes = [];
+        vm.apolices = [];
 
         function _load() {
-            ClienteService.findAll(vm.page, vm.pageSize, vm.filter, vm.sort)
+            ApoliceService.findAll(vm.page, vm.pageSize, vm.filter, vm.sort)
                 .then(function(obj) {
-                    vm.clientes = obj.data;
+                    vm.apolices = obj.data;
                     vm.pageSize = obj.pageSize;
                     vm.page = obj.page;
                     vm.finish = obj.finish;
@@ -52,14 +52,14 @@
         }
         
         vm.remove = function (id) {
-            if (confirm('Deseja realmente excluir o cliente?')) {
-                ClienteService.remove(id)
+            if (confirm('Deseja realmente excluir a apólice/seguro?')) {
+                ApoliceService.remove(id)
                     .then(function () {
-                        alert('Cliente excluído com sucesso!');
+                        alert('Apólice/seguro excluído com sucesso!');
                         _load();
                     })
                     .catch(function (error) {
-                        alert('Problemas ao excluir o cliente [' + error.code + ']!');
+                        alert('Problemas ao excluir a apólice/seguro [' + error.code + ']!');
                     });
 
             }

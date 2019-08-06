@@ -1,14 +1,14 @@
-(function(){
+(function () {
 
     angular.module('webseg')
-        .service('ClienteService', ClienteService);
+        .service('ApoliceService', ApoliceService);
 
-    ClienteService.$inject = ['$http'];
+    ApoliceService.$inject = ['$http'];
 
-    function ClienteService ($http) {
+    function ApoliceService($http) {
         var service = this;
 
-        var URL = 'http://localhost:8080/api/clientes';
+        var URL = 'http://localhost:8080/api/apolices';
 
         service.findAll = function (page, pageSize, filter, sort) {
             var urlFinal = URL + '?pageSize=' + (pageSize || 20)
@@ -16,9 +16,9 @@
             if (filter) {
                 urlFinal += '&filterField=nome&filterData=' + filter;
             }
-            
+
             return $http.get(urlFinal)
-                .then(function(response) {
+                .then(function (response) {
                     return {
                         data: response.data,
                         count: response.headers('X-Total-Length'),
@@ -31,21 +31,21 @@
 
         service.findOne = function (id) {
             return $http.get(URL + '/' + id)
-                .then(function(response) {
+                .then(function (response) {
                     return response.data;
                 });
         }
 
-        service.insert = function (cliente) {
-            return $http.post(URL, cliente)
-                .then(function(response) {
+        service.insert = function (apolice) {
+            return $http.post(URL, apolice)
+                .then(function (response) {
                     return response.data;
                 });
         }
 
-        service.update = function (cliente) {
-            return $http.put(URL + '/' + cliente.id, cliente)
-                .then(function(response) {
+        service.update = function (apolice) {
+            return $http.put(URL + '/' + apolice.id, apolice)
+                .then(function (response) {
                     return response.data;
                 });
         }

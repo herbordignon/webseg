@@ -1,6 +1,6 @@
-package com.jhonystein.pedidex.utils;
+package com.hernanibordignon.webseg.utils;
 
-import com.jhonystein.pedidex.models.Entidade;
+import com.hernanibordignon.webseg.models.Entidade;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;

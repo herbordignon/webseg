@@ -1,4 +1,4 @@
-package com.jhonystein.pedidex;
+package com.hernanibordignon.webseg;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

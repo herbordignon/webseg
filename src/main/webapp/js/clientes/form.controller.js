@@ -1,6 +1,6 @@
 (function(){
 
-    angular.module('pedidex')
+    angular.module('webseg')
         .controller('ClienteFormController', ClienteFormController);
 
     ClienteFormController.$inject = ['ClienteService', '$state', '$stateParams'];
@@ -22,22 +22,22 @@
             if (vm.cliente.id) {
                 ClienteService.update(vm.cliente)
                     .then(function (data) {
-                        alert('Cliente atualizado com sucesso!!!');
+                        alert('Cliente atualizado com sucesso!');
                         $state.go('clientes');
                     })
                     .catch(function (error) {
                         vm.errors = error.data;
-                        alert('Erro ao atualizar cliente');
+                        alert('Erro ao atualizar cliente.');
                     });
             } else {
                 ClienteService.insert(vm.cliente)
                     .then(function (data) {
-                        alert('Cliente inserido com sucesso!!!');
+                        alert('Cliente inserido com sucesso!');
                         $state.go('clientes');
                     })
                     .catch(function (error) {
                         vm.errors = error.data;
-                        alert('Erro ao atualizar cliente');
+                        alert('Erro ao atualizar cliente.');
                     });
             }
         };
@@ -45,4 +45,3 @@
     }
 
 })();
-

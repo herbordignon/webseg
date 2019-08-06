@@ -1,14 +1,14 @@
 (function(){
 
     angular.module('webseg')
-        .service('ClienteService', ClienteService);
+        .service('SeguradoraService', SeguradoraService);
 
-    ClienteService.$inject = ['$http'];
+    SeguradoraService.$inject = ['$http'];
 
-    function ClienteService ($http) {
+    function SeguradoraService ($http) {
         var service = this;
 
-        var URL = 'http://localhost:8080/api/clientes';
+        var URL = 'http://localhost:8080/api/seguradoras';
 
         service.findAll = function (page, pageSize, filter, sort) {
             var urlFinal = URL + '?pageSize=' + (pageSize || 20)
@@ -36,15 +36,15 @@
                 });
         }
 
-        service.insert = function (cliente) {
-            return $http.post(URL, cliente)
+        service.insert = function (seguradora) {
+            return $http.post(URL, seguradora)
                 .then(function(response) {
                     return response.data;
                 });
         }
 
-        service.update = function (cliente) {
-            return $http.put(URL + '/' + cliente.id, cliente)
+        service.update = function (seguradora) {
+            return $http.put(URL + '/' + seguradora.id, seguradora)
                 .then(function(response) {
                     return response.data;
                 });

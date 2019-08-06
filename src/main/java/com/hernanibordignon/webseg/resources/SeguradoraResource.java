@@ -1,20 +1,19 @@
-package com.jhonystein.pedidex.resources;
+package com.hernanibordignon.webseg.resources;
 
-import com.jhonystein.pedidex.models.Pedido;
-import com.jhonystein.pedidex.service.AbstractService;
-import com.jhonystein.pedidex.service.PedidoService;
+import com.hernanibordignon.webseg.models.Seguradora;
+import com.hernanibordignon.webseg.service.AbstractService;
+import com.hernanibordignon.webseg.service.SeguradoraService;
 import javax.inject.Inject;
 import javax.ws.rs.Path;
 
-@Path("/pedidos")
-public class PedidoResource extends AbstractResource<Pedido>{
+@Path("/seguradoras")
+public class SeguradoraResource extends AbstractResource<Seguradora>{
 
     @Inject
-    private PedidoService service;
+    private SeguradoraService service;
 
     @Override
-    protected AbstractService<Pedido> getService() {
+    protected AbstractService<Seguradora> getService() {
         return service;
     }
-    
 }

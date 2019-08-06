@@ -1,0 +1,43 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+    <h1 class="h2">{{vm. titulo}}</h1>
+</div>
+<form>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Nº Apólice</label>
+            <input ng-class="{ 'is-invalid': vm.errors.codigo }" ng-model="vm.apolice.codigo" type="text"
+                class="form-control">
+            <div ng-if="vm.errors.codigo" class="invalid-feedback">{{vm.errors.codigo[1]}}</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Cliente</label>
+        <input ng-class="{ 'is-invalid': vm.errors.cliente }" ng-model="vm.apolice.cliente" type="text"
+            class="form-control">
+        <div ng-if="vm.errors.cliente" class="invalid-feedback">{{vm.errors.cliente[1]}}</div>
+    </div>
+    <div class="form-group">
+        <label>Seguradora</label>
+        <input ng-class="{ 'is-invalid': vm.errors.seguradora }" ng-model="vm.apolice.seguradora" type="text"
+            class="form-control">
+        <div ng-if="vm.errors.seguradora" class="invalid-feedback">{{vm.errors.seguradora[1]}}</div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Início vigência</label>
+            <input ng-class="{ 'is-invalid': vm.errors.vigenciaini }" ng-model="vm.apolice.vigenciaini" type="date"
+                class="form-control">
+            <div ng-if="vm.errors.vigenciaini" class="invalid-feedback">{{vm.errors.vigenciaini[1]}}</div>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Fim vigência</label>
+            <input ng-class="{ 'is-invalid': vm.errors.vigenciafim }" ng-model="vm.apolice.vigenciafim" type="date"
+                class="form-control">
+            <div ng-if="vm.errors.vigenciafim" class="invalid-feedback">{{vm.errors.vigenciafim[1]}}</div>
+        </div>
+    </div>
+    <div class="mb-2 text-lg-right">
+        <button ng-click="vm.save()" type="button" class="btn btn-success">Salvar</button>
+        <button ui-sref="apolices" type="button" class="btn btn-outline-danger">Cancelar</button>
+    </div>
+</form>

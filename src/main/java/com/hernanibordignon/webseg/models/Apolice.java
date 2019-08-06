@@ -1,4 +1,4 @@
-package com.jhonystein.pedidex.models;
+package com.hernanibordignon.webseg.models;
 
 import java.util.Date;
 import java.util.List;
@@ -19,38 +19,41 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "PEDIDOS")
-@SequenceGenerator(name = "pedido_seq", allocationSize = 1,
-        sequenceName = "PEDIDO_SEQ")
-public class Pedido implements Entidade {
+@Table(name = "APOLICES")
+@SequenceGenerator(name = "apolice_seq", allocationSize = 1,
+        sequenceName = "APOLICE_SEQ")
+public class Apolice implements Entidade {
     
     @Id
-    @Column(name = "ID_PEDIDO")
-    @GeneratedValue(generator = "pedido_seq", strategy = GenerationType.SEQUENCE)
+    @Column(name = "ID_APOLICE")
+    @GeneratedValue(generator = "apolice_seq", strategy = GenerationType.SEQUENCE)
     private Long id;
     
-    @Column(name = "CD_PEDIDO", length = 20, unique = true)
+    @Column(name = "CD_APOLICE", length = 20, unique = true)
     private String codigo;
     
     @ManyToOne()
     @JoinColumn(name = "ID_CLIENTE", 
             foreignKey = 
-                    @ForeignKey(name = "FK_PEDIDO_CLIENTE", 
+                    @ForeignKey(name = "FK_APOLICE_CLIENTE", 
                             value = ConstraintMode.CONSTRAINT))
     private Cliente cliente;
     
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "DT_EMISSAO")
-    private Date emissao;
+    @ManyToOne()
+    @JoinColumn(name = "ID_SEGURADORA", 
+            foreignKey = 
+                    @ForeignKey(name = "FK_APOLICE_SEGURADORA", 
+                            value = ConstraintMode.CONSTRAINT))
+    private Seguradora seguradora;
     
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "DT_APROVACAO")
-    private Date aprovacao;
+    @Column(name = "DT_INI_VIG")
+    private Date vigenciaini;
     
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "ID_PEDIDO")
-    private List<PedidoItem> items;
-
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "DT_FIM_VIG")
+    private Date vigenciafim;
+    
     @Override
     public Long getId() {
         return id;
@@ -76,28 +79,27 @@ public class Pedido implements Entidade {
         this.cliente = cliente;
     }
 
-    public Date getEmissao() {
-        return emissao;
+    public Seguradora getSeguradora() {
+        return seguradora;
     }
 
-    public void setEmissao(Date emissao) {
-        this.emissao = emissao;
+    public void setSeguradora(Seguradora seguradora) {
+        this.seguradora = seguradora;
     }
 
-    public Date getAprovacao() {
-        return aprovacao;
+    public Date getVigenciaini() {
+        return vigenciaini;
     }
 
-    public void setAprovacao(Date aprovacao) {
-        this.aprovacao = aprovacao;
+    public void setVigenciaini(Date vigenciaini) {
+        this.vigenciaini = vigenciaini;
     }
 
-    public List<PedidoItem> getItems() {
-        return items;
+    public Date getVigenciafim() {
+        return vigenciafim;
     }
 
-    public void setItems(List<PedidoItem> items) {
-        this.items = items;
+    public void setVigenciafim(Date vigenciafim) {
+        this.vigenciafim = vigenciafim;
     }
-    
 }

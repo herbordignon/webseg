@@ -4,8 +4,9 @@
 <form>
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label>Documento</label>
-            <input ng-class="{ 'is-invalid': vm.errors.documento }" ng-model="vm.cliente.documento" type="text" class="form-control">
+            <label>CPF/CNPJ</label>
+            <input ng-class="{ 'is-invalid': vm.errors.documento }" ng-model="vm.cliente.documento" type="text"
+                class="form-control">
             <div ng-if="vm.errors.documento" class="invalid-feedback">{{vm.errors.documento[1]}}</div>
         </div>
     </div>
@@ -14,15 +15,43 @@
         <input ng-class="{ 'is-invalid': vm.errors.nome }" ng-model="vm.cliente.nome" type="text" class="form-control">
         <div ng-if="vm.errors.nome" class="invalid-feedback">{{vm.errors.nome[1]}}</div>
     </div>
+    <div class="form-group">
+        <label>Endereço</label>
+        <input ng-class="{ 'is-invalid': vm.errors.endereco }" ng-model="vm.cliente.endereco" type="text"
+            class="form-control">
+        <div ng-if="vm.errors.endereco" class="invalid-feedback">{{vm.errors.endereco[1]}}</div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Cidade</label>
+            <input ng-class="{ 'is-invalid': vm.errors.cidade }" ng-model="vm.cliente.cidade" type="text"
+                class="form-control">
+            <div ng-if="vm.errors.cidade" class="invalid-feedback">{{vm.errors.cidade[1]}}</div>
+        </div>
+        <div class="form-group col-md-4">
+            <label>UF</label>
+            <input ng-class="{ 'is-invalid': vm.errors.uf }" ng-model="vm.cliente.uf" type="text" maxlength="2"
+                style="text-transform:uppercase" class="form-control">
+            <div ng-if="vm.errors.uf" class="invalid-feedback">{{vm.errors.uf[1]}}</div>
+        </div>
+        <div class="form-group col-md-2">
+            <label>CEP</label>
+            <input ng-class="{ 'is-invalid': vm.errors.cep }" ng-model="vm.cliente.cep" type="text" maxlength="8"
+                class="form-control">
+            <div ng-if="vm.errors.cep" class="invalid-feedback">{{vm.errors.cep[1]}}</div>
+        </div>
+    </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label>Telefone</label>
-            <input ng-class="{ 'is-invalid': vm.errors.telefone }" ng-model="vm.cliente.telefone" type="text" class="form-control">
+            <input ng-class="{ 'is-invalid': vm.errors.telefone }" ng-model="vm.cliente.telefone" type="text"
+                class="form-control">
             <div ng-if="vm.errors.telefone" class="invalid-feedback">{{vm.errors.telefone[1]}}</div>
         </div>
         <div class="form-group col-md-6">
             <label>Email</label>
-            <input ng-class="{ 'is-invalid': vm.errors.email }" ng-model="vm.cliente.email" type="email" class="form-control">
+            <input ng-class="{ 'is-invalid': vm.errors.email }" ng-model="vm.cliente.email" type="email"
+                style="text-transform:lowercase" class="form-control">
             <div ng-if="vm.errors.email" class="invalid-feedback">{{vm.errors.email[1]}}</div>
         </div>
     </div>

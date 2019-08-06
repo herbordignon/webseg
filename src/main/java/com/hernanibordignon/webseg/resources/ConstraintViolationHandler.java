@@ -1,4 +1,4 @@
-package com.jhonystein.pedidex.resources;
+package com.hernanibordignon.webseg.resources;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -59,5 +59,4 @@ public class ConstraintViolationHandler implements ExceptionMapper<ConstraintVio
         }
         return propertyPath;
     }
-    
 }

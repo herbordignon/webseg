@@ -1,7 +1,7 @@
-package com.jhonystein.pedidex.resources;
+package com.hernanibordignon.webseg.resources;
 
-import com.jhonystein.pedidex.models.Entidade;
-import com.jhonystein.pedidex.service.AbstractService;
+import com.hernanibordignon.webseg.models.Entidade;
+import com.hernanibordignon.webseg.service.AbstractService;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.DefaultValue;

@@ -1,7 +1,7 @@
-package com.jhonystein.pedidex.service;
+package com.hernanibordignon.webseg.service;
 
-import com.jhonystein.pedidex.models.Cliente;
-import com.jhonystein.pedidex.utils.GenericDao;
+import com.hernanibordignon.webseg.models.Cliente;
+import com.hernanibordignon.webseg.utils.GenericDao;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
